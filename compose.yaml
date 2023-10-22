@@ -1,0 +1,16 @@
+services:
+  mysql_batch:
+    image: 'mysql:latest'
+    container_name: 'batch-example'
+    environment:
+      - 'MYSQL_DATABASE=test'
+      - 'MYSQL_ROOT_PASSWORD=r1234'
+      - 'MYSQL_USER=testUser'
+      - 'MYSQL_PASSWORD=1234'
+    ports:
+      - '3305:3306'
+    networks:
+      - 'batch-5.0'
+networks:
+  batch-5.0:
+    driver: bridge
